@@ -20,11 +20,11 @@ public class Facture {
     private int Total;
 
     @ManyToOne
-    @JsonIgnore
+  //  @JsonIgnore
     private Fournisseur fournisseur;
 
     @ManyToOne()
-    @JsonIgnore
+   // @JsonIgnore
     private User user;
 
     public int getNbrPoint() {

@@ -5,8 +5,12 @@ import com.example.projetHormiga.service.AdminService;
 import com.example.projetHormiga.service.FournisseurService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-@RestController
-    @RequestMapping("/Fournisseur")
+
+import java.util.List;
+
+@CrossOrigin(origins = "*")
+    @RestController
+    @RequestMapping("Fournisseur")
 public class FournisseurRestController {
     @Autowired
     AdminService adminService;
@@ -27,10 +31,10 @@ public class FournisseurRestController {
         fournisseurService.updateFrounisseur(fournisseur);
     }
 
-    @GetMapping("/Liste")
+    @GetMapping("/List")
     @ResponseBody
-    public void afficherListe() {
-    fournisseurService.afficherListe();
+    public List<Fournisseur> afficherListe() {
+        return fournisseurService.afficherListe();
     }
 
 }

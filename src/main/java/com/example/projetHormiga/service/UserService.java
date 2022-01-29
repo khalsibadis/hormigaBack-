@@ -8,6 +8,6 @@ import java.util.List;
 public interface UserService {
     public List<Facture> FACTURE_LIST(Long Id);
     public void addUser(User user);
-
+    public List<User> LIST_User();
 
 }

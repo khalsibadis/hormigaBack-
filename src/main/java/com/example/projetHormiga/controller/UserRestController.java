@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("User")
 public class UserRestController {
@@ -22,5 +23,9 @@ public class UserRestController {
     public void addUser(@RequestBody User user){
         userService.addUser(user);
     }
-
+    @GetMapping("/ListUser")
+    @ResponseBody
+    public List<User> LIST_User(){
+        return userService.LIST_User();
+    }
 }

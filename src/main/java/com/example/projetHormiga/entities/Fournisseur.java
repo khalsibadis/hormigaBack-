@@ -1,5 +1,6 @@
 package com.example.projetHormiga.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,10 +21,12 @@ public class Fournisseur  implements Serializable {
     private String password;
 
 @ManyToOne
+@JsonIgnore
     private SuperAdmin superAdmin;
 
 
 @OneToMany(mappedBy = "fournisseur")
+@JsonIgnore
     private Set<Facture> factures;
 
     public Long getId() {

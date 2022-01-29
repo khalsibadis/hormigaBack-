@@ -5,6 +5,8 @@ import com.example.projetHormiga.repository.FournisseurRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class FournisseurServiceImpl implements FournisseurService {
     @Autowired
@@ -27,8 +29,8 @@ public class FournisseurServiceImpl implements FournisseurService {
     }
 
     @Override
-    public void afficherListe() {
-        fournisseurRepository.findAll();
+    public List<Fournisseur> afficherListe() {
+        return fournisseurRepository.findAll();
     }
 
     @Override
