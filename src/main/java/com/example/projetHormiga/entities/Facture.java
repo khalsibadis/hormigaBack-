@@ -16,7 +16,8 @@ public class Facture {
     private Long id;
     private String TypeFacture;
     private String EtatPayement;
-    private String Total;
+    private int nbrPoint;
+    private int Total;
 
     @ManyToOne
     @JsonIgnore
@@ -25,6 +26,14 @@ public class Facture {
     @ManyToOne()
     @JsonIgnore
     private User user;
+
+    public int getNbrPoint() {
+        return nbrPoint;
+    }
+
+    public void setNbrPoint(int nbrPoint) {
+        this.nbrPoint = nbrPoint;
+    }
 
     public Long getId() {
         return id;
@@ -50,11 +59,11 @@ public class Facture {
         EtatPayement = etatPayement;
     }
 
-    public String getTotal() {
+    public int getTotal() {
         return Total;
     }
 
-    public void setTotal(String total) {
+    public void setTotal(int total) {
         Total = total;
     }
 
