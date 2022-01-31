@@ -43,8 +43,8 @@ public class FactureRestController {
 
     @GetMapping("afficherFacture/{idFacture}")
     @ResponseBody
-    public void afficherFacturebyId(@PathVariable("idFacture") Long idFacture) {
-        factureService.afficherFacturebyId(idFacture);
+    public Facture afficherFacturebyId(@PathVariable("idFacture") Long idFacture) {
+        return factureService.afficherFacturebyId(idFacture);
     }
 
 }

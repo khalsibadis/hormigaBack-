@@ -54,7 +54,8 @@ public class FactureServiceImpl implements FactureService {
     }
 
     @Override
-    public void afficherFacturebyId(Long idFacture) {
-        Facture facture = factureRepository.findById(idFacture).orElse(null);
+    public Facture afficherFacturebyId(Long idFacture) {
+
+        return factureRepository.findById(idFacture).orElse(null);
     }
 }

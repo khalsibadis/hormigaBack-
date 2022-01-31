@@ -23,7 +23,7 @@ public class Facture {
   //  @JsonIgnore
     private Fournisseur fournisseur;
 
-    @ManyToOne()
+    @ManyToOne
    // @JsonIgnore
     private User user;
 
