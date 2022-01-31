@@ -58,4 +58,10 @@ public class FactureServiceImpl implements FactureService {
 
         return factureRepository.findById(idFacture).orElse(null);
     }
+
+    @Override
+    public List <Facture> afficherFacturebyFournisseur(Long idFournisseur) {
+         List<Facture> f = factureRepository.afficherFacturebyFournisseur(idFournisseur);
+        return f;
+    }
 }
