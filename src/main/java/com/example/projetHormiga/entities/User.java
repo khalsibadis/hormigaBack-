@@ -20,7 +20,7 @@ public class User {
 
 
 
-    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "user")
     @JsonIgnore
     private Set<Facture> factures;
 

@@ -25,7 +25,7 @@ public class Fournisseur  implements Serializable {
     private SuperAdmin superAdmin;
 
 
-@OneToMany(mappedBy = "fournisseur",cascade = CascadeType.ALL)
+@OneToMany(mappedBy = "fournisseur")
 @JsonIgnore
     private Set<Facture> factures;
 
