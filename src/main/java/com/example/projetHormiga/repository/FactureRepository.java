@@ -13,6 +13,5 @@ import java.util.List;
 public interface FactureRepository extends JpaRepository<Facture,Long> {
 
 
-    @Query("select u from Facture u join u.fournisseur d where d.id=:id ")
-    List <Facture> afficherFacturebyFournisseur(@Param("id") Long idFournisseur);
+
 }

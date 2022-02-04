@@ -17,6 +17,6 @@ public interface FactureService {
 
     Facture afficherFacturebyId(Long idFacture);
 
-     List <Facture> afficherFacturebyFournisseur(Long idFournisseur);
+
 
 }

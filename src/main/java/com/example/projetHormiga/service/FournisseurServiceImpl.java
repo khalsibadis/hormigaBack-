@@ -1,5 +1,6 @@
 package com.example.projetHormiga.service;
 
+import com.example.projetHormiga.entities.Facture;
 import com.example.projetHormiga.entities.Fournisseur;
 import com.example.projetHormiga.repository.FournisseurRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,5 +37,10 @@ public class FournisseurServiceImpl implements FournisseurService {
     @Override
     public void afficherFournisseurById(Long id) {
         Fournisseur fournisseur=fournisseurRepository.findById(id).orElse(null);
+    }
+
+    @Override
+    public List<Facture> afficherFacturebyFournisseur(Long idFournisseur) {
+        return fournisseurRepository.afficherFacturebyFournisseur(idFournisseur);
     }
 }

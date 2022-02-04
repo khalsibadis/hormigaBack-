@@ -1,5 +1,6 @@
 package com.example.projetHormiga.controller;
 
+import com.example.projetHormiga.entities.Facture;
 import com.example.projetHormiga.entities.Fournisseur;
 import com.example.projetHormiga.service.AdminService;
 import com.example.projetHormiga.service.FournisseurService;
@@ -16,6 +17,7 @@ public class FournisseurRestController {
     AdminService adminService;
     @Autowired
     FournisseurService fournisseurService;
+
     @PostMapping("/ajout")
     public void addFournisseur(@RequestBody Fournisseur fournisseur) {
         fournisseurService.addFournisseur(fournisseur);
@@ -37,4 +39,10 @@ public class FournisseurRestController {
         return fournisseurService.afficherListe();
     }
 
+    @GetMapping("/affichierFactureByFournisseur/{id}")
+    @ResponseBody
+    public List<Facture> afficherFacturebyFournisseur(@PathVariable("id") Long idFournisseur) {
+        return fournisseurService.afficherFacturebyFournisseur(idFournisseur);
+
+    }
 }

@@ -46,10 +46,5 @@ public class FactureRestController {
     public Facture afficherFacturebyId(@PathVariable("idFacture") Long idFacture) {
         return factureService.afficherFacturebyId(idFacture);
     }
-    @GetMapping("/affichierFactureByFournisseur/{id}")
-    @ResponseBody
-    public List <Facture> afficherFacturebyFournisseur(@PathVariable("id") Long idFournisseur){
-        return factureService.afficherFacturebyFournisseur(idFournisseur);
 
-    }
 }
