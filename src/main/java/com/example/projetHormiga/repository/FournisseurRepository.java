@@ -14,4 +14,10 @@ public interface FournisseurRepository extends JpaRepository<Fournisseur,Long> {
 
     @Query("select u.factures from Fournisseur u where u.id=:id ")
     List<Facture> afficherFacturebyFournisseur(@Param("id") Long idFournisseur);
+
+    @Query("select u from Fournisseur u where u.role='FOURNISSEUR'")
+    public List<Fournisseur> afficherListeFournisseur();
+
+    @Query("select u from Fournisseur u where u.role='CLIENT'")
+    public List<Fournisseur> afficherListeClient();
 }

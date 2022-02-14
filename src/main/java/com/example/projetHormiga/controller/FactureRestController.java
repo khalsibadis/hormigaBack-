@@ -16,12 +16,10 @@ public class FactureRestController {
     @Autowired
     FactureService factureService;
 
-    @PostMapping("/ajouterFacture/{idFournisseur}/{idUser}")
-    @ResponseBody
-    public void ajouterFacture(@RequestBody Facture facture, @PathVariable("idFournisseur") Long idFournisseur, @PathVariable("idUser") Long idUser) {
-        factureService.ajouterFacture(facture, idFournisseur, idUser);
+    @PostMapping("/ajouterFacture/{idFournisseur}")
+    public void ajouterFacture(@RequestBody Facture facture, @PathVariable("idFournisseur") Long idFournisseur) {
+        factureService.ajouterFacture(facture, idFournisseur);
     }
-
 
     @PutMapping("/modifierFacture")
     public void modifierFacture(@RequestBody Facture facture) {

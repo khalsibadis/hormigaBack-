@@ -20,12 +20,9 @@ public class Facture {
     private int Total;
 
     @ManyToOne()
-  //  @JsonIgnore
     private Fournisseur fournisseur;
 
-    @ManyToOne()
-   // @JsonIgnore
-    private User user;
+    private String user;
 
     public int getNbrPoint() {
         return nbrPoint;
@@ -75,11 +72,11 @@ public class Facture {
         this.fournisseur = fournisseur;
     }
 
-    public User getUser() {
+    public String getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(String user) {
         this.user = user;
     }
 }

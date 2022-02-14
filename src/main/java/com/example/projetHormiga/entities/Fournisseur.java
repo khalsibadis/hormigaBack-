@@ -9,7 +9,6 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Set;
 
-
 @Data
 @Entity
 public class Fournisseur  implements Serializable {
@@ -18,16 +17,81 @@ public class Fournisseur  implements Serializable {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id;
     private String nom;
+    private String prenom;
+    @JsonIgnore
     private String password;
+    private String UserName;
+    private String City;
+    private String AboutMe;
+    private boolean isNotLocked;
+    private boolean isActive;
 
-@ManyToOne
-@JsonIgnore
+    public boolean isNotLocked() {
+        return isNotLocked;
+    }
+
+    public void setNotLocked(boolean notLocked) {
+        isNotLocked = notLocked;
+    }
+
+    public boolean isActive() {
+        return isActive;
+    }
+
+    public void setActive(boolean active) {
+        isActive = active;
+    }
+
+    public String getCity() {
+        return City;
+    }
+
+    public void setCity(String city) {
+        City = city;
+    }
+
+    public String getAboutMe() {
+        return AboutMe;
+    }
+
+    public void setAboutMe(String aboutMe) {
+        AboutMe = aboutMe;
+    }
+
+    @Enumerated(EnumType.STRING)
+    private Role role;
+    @ManyToOne
+    @JsonIgnore
     private SuperAdmin superAdmin;
 
 
-@OneToMany(mappedBy = "fournisseur")
-@JsonIgnore
+    @OneToMany(mappedBy = "fournisseur")
+    @JsonIgnore
     private Set<Facture> factures;
+
+    public String getPrenom() {
+        return prenom;
+    }
+
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
+    }
+
+    public String getUserName() {
+        return UserName;
+    }
+
+    public void setUserName(String userName) {
+        UserName = userName;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
 
     public Long getId() {
         return id;
