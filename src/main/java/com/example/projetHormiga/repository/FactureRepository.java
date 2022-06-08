@@ -12,6 +12,14 @@ import java.util.List;
 @Repository
 public interface FactureRepository extends JpaRepository<Facture,Long> {
 
-
-
+    @Query("select sum(u.nbrPoint) from Facture u where u.fournisseur.id=:id")
+    public int TotalPointByFournisseur(@Param("id") Long id);
+    @Query("select sum(u.Total) from Facture u where u.fournisseur.id=:id")
+    public int PirxtotalByFournisseur(@Param("id") Long id);
+    @Query("select count(u.Total) from Facture u where u.fournisseur.id=:id")
+    public int nbrFactureByFournisseur(@Param("id") Long id);
+    @Query("select count(u.nbrPoint) from Facture u where u.fournisseur.id=:id and u.typeFactures=:type")
+    public int nbrPtByFournisseurByType(@Param("id") Long id,String type);
+    @Query("select sum(u.nbrPoint) from Facture u where u.fournisseur.id=:id and u.typeFactures=:type")
+    public int TotalPtByFournisseurByType(@Param("id") Long id,String type);
 }

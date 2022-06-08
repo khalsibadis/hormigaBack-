@@ -20,4 +20,7 @@ public interface FournisseurRepository extends JpaRepository<Fournisseur,Long> {
 
     @Query("select u from Fournisseur u where u.role='CLIENT'")
     public List<Fournisseur> afficherListeClient();
+
+    @Query("select u from Fournisseur u where u.UserName=:user")
+    public Fournisseur LoginByUserName(@Param("user")String user);
 }

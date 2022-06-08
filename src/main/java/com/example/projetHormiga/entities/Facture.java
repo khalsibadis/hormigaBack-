@@ -1,23 +1,23 @@
 package com.example.projetHormiga.entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 
 @Data
 @Entity
-public class Facture {
+public class Facture implements Serializable {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id;
-    private String TypeFacture;
+   // private String TypeFacture;
     private String EtatPayement;
     private int nbrPoint;
     private int Total;
+    @ManyToOne ()
+    private TypeFactures typeFactures;
 
     @ManyToOne()
     private Fournisseur fournisseur;
@@ -40,13 +40,8 @@ public class Facture {
         this.id = id;
     }
 
-    public String getTypeFacture() {
-        return TypeFacture;
-    }
 
-    public void setTypeFacture(String typeFacture) {
-        TypeFacture = typeFacture;
-    }
+
 
     public String getEtatPayement() {
         return EtatPayement;
@@ -78,5 +73,9 @@ public class Facture {
 
     public void setUser(String user) {
         this.user = user;
+    }
+
+    public void setTypeFactures(TypeFactures typeFactures) {
+        this.typeFactures = typeFactures;
     }
 }

@@ -20,11 +20,28 @@ public class Fournisseur  implements Serializable {
     private String prenom;
     @JsonIgnore
     private String password;
+    @JsonIgnore
     private String UserName;
     private String City;
     private String AboutMe;
     private boolean isNotLocked;
     private boolean isActive;
+    @OneToMany(mappedBy="fournisseur")
+    @JsonIgnore
+    private Set<TypeFactures> typeFactures;
+
+    @Enumerated(EnumType.STRING)
+    private Role role;
+    @ManyToOne
+    @JsonIgnore
+    private SuperAdmin superAdmin;
+
+
+    @OneToMany(mappedBy = "fournisseur")
+    @JsonIgnore
+    private Set<Facture> factures;
+
+
 
     public boolean isNotLocked() {
         return isNotLocked;
@@ -58,16 +75,6 @@ public class Fournisseur  implements Serializable {
         AboutMe = aboutMe;
     }
 
-    @Enumerated(EnumType.STRING)
-    private Role role;
-    @ManyToOne
-    @JsonIgnore
-    private SuperAdmin superAdmin;
-
-
-    @OneToMany(mappedBy = "fournisseur")
-    @JsonIgnore
-    private Set<Facture> factures;
 
     public String getPrenom() {
         return prenom;
