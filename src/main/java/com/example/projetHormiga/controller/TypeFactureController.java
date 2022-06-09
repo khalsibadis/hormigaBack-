@@ -33,8 +33,9 @@ public class TypeFactureController {
     public List<TypeFactures> AfficherListeTypeFactureByUser( @PathVariable("IdF") Long IdF) {
         return iTypeFacture.AfficherListeTypeFactureByUser(IdF);
     }
-
-
-
+    @GetMapping("GetById/{id}")
+    public TypeFactures GetTypeFactureById(@PathVariable("id")Long idType)  {
+        return iTypeFacture.GetTypeFactureById(idType);
+    }
 
     }

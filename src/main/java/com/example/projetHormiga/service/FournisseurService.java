@@ -15,5 +15,6 @@ public interface FournisseurService {
     public List<Fournisseur> afficherListeClient();
     public Fournisseur afficherFournisseurById(Long id);
     public List <Facture> afficherFacturebyFournisseur(Long idFournisseur) ;
-    public ResponseEntity LoginFournisseur(String UserName, String PW);
+    public List <Facture> afficherFactureCreditbyFournisseur(Long idFournisseur) ;
+
     }

@@ -44,4 +44,9 @@ public class TypeFactureServiceImpl implements ITypeFacture {
     public List<TypeFactures> AfficherListeTypeFactureByUser(Long IdF) {
         return typeFactureRepository.AfficherListeTypeFactureByUser(IdF);
     }
+
+    @Override
+    public TypeFactures GetTypeFactureById(Long idType) {
+        return typeFactureRepository.findById(idType).orElse(null);
+    }
 }

@@ -52,19 +52,12 @@ public class FournisseurServiceImpl implements FournisseurService {
     }
 
     @Override
+    public List<Facture> afficherFactureCreditbyFournisseur(Long idFournisseur) {
+        return fournisseurRepository.afficherFactureCreditbyFournisseur(idFournisseur);
+    }
+    @Override
     public List<Facture> afficherFacturebyFournisseur(Long idFournisseur) {
         return fournisseurRepository.afficherFacturebyFournisseur(idFournisseur);
-    }
-
-    @Override
-    public ResponseEntity LoginFournisseur(String UserName, String PW) {
-        List<Fournisseur> F =afficherListe();
-        for (Fournisseur fo :F) {
-            if (fo.getUserName().equals(UserName) && fo.getPassword().equals(PW)) {
-                return ResponseEntity.accepted().body(fo);
-            }
-        }
-      return ResponseEntity.notFound().build();
     }
 
 }

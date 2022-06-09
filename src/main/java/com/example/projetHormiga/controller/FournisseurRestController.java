@@ -40,17 +40,16 @@ public class FournisseurRestController {
         return fournisseurService.afficherListe();
     }
 
-    @GetMapping("/affichierFactureByFournisseur/{id}")
+    @GetMapping("/affichierFactureCreditByFournisseur/{id}")
+    @ResponseBody
+    public List<Facture> afficherFactureCreditbyFournisseur(@PathVariable("id") Long idFournisseur) {
+        return fournisseurService.afficherFactureCreditbyFournisseur(idFournisseur);
+
+    }@GetMapping("/affichierFactureByFournisseur/{id}")
     @ResponseBody
     public List<Facture> afficherFacturebyFournisseur(@PathVariable("id") Long idFournisseur) {
         return fournisseurService.afficherFacturebyFournisseur(idFournisseur);
 
-    }
-    @GetMapping("/Login/{user}/{pw}")
-    @ResponseBody
-    public ResponseEntity LoginFournisseur(@PathVariable("user") String UserName, @PathVariable("pw") String PW) {
-
-        return fournisseurService.LoginFournisseur(UserName,PW);
     }
     @GetMapping("/ListClient")
     @ResponseBody

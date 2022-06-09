@@ -10,4 +10,6 @@ public interface ITypeFacture {
     public void UpdateTypeFacture(TypeFactures typeFactures);
     public List<TypeFactures> AfficherListeTypeFacture();
     public List<TypeFactures> AfficherListeTypeFactureByUser(Long IdF);
+    public TypeFactures GetTypeFactureById(Long idType);
+
 }

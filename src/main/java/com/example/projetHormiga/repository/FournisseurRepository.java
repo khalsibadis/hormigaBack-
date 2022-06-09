@@ -12,7 +12,13 @@ import java.util.List;
 @Repository
 public interface FournisseurRepository extends JpaRepository<Fournisseur,Long> {
 
-    @Query("select u.factures from Fournisseur u where u.id=:id ")
+    //@Query("select u.factures from Fournisseur u join u.factures f where u.id=:id and f.EtatPayement='Non' ")
+   // List<Facture> afficherFacturebyFournisseur(@Param("id") Long idFournisseur);
+
+    @Query("select u from Facture u  where u.fournisseur.id=:id and u.EtatPayement='Non' ")
+    List<Facture> afficherFactureCreditbyFournisseur(@Param("id") Long idFournisseur);
+
+    @Query("select u from Facture u  where u.fournisseur.id=:id ")
     List<Facture> afficherFacturebyFournisseur(@Param("id") Long idFournisseur);
 
     @Query("select u from Fournisseur u where u.role='FOURNISSEUR'")
